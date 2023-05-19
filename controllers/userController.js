@@ -50,6 +50,7 @@ module.exports.verifyOTP = function(req,res){
 module.exports.create = function(req, res){
     // check whether password and confirm password matches or not
     if(req.body.password != req.body.password_confirmation){
+        req.flash('error','Password and Confirm Password must matched.')
         return res.redirect('back');
     }
     // if passwords are same we will see if the email ids should be unique
@@ -64,7 +65,8 @@ module.exports.create = function(req, res){
             })
            
         }else{
-             // user already exist so back
+            // user already exist so back
+            req.flash('error','User already exist with same email address')
             return res.redirect('back');
         }
     })
