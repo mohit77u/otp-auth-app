@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication App</title>
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <!-- header -->
+    <header class="lg:w-9/12 md:w-10/12 sm:w-11/12 mx-auto py-4 px-2">
+        <div class="flex sm:justify-end justify-start py-2">
+            <div class="flex items-center gap-5">
+                <% if(!locals.user){ %> 
+                    <a href="/signin" class="text-slate-800 font-semibold text-md">Login</a>
+                    <a href="/signup" class="text-slate-800 font-semibold text-md">Signup</a>
+                <% } %>
+
+                <% if(locals.user){ %> 
+                    <p href="#" class="text-slate-800 font-semibold text-md">Welcome, <%= locals.user.name %></p>
+                    <a href="/signout" class="text-slate-800 font-semibold text-md">Signout</a>
+                <% } %>
+            </div>
+        </div>
+    </header>
+
+    <!-- main body -->
+    <%- body %>
+
+    <script src="/js/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+</body>
+
+</html>

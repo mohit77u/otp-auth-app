@@ -1,0 +1,30 @@
+
+    <div class="login min-h-screen py-12 flex items-center justify-center px-2">
+        <div class="h-full md:h-auto mx-auto">
+            <div class="form p-4 mb-5 bg-white shadow-lg border border-gray-300 rounded-lg sm:min-w-[380px] min-w-[300px]">
+                <p class="text-center font-bold text-2xl pb-5">Sign Up</p>
+                    <form action="/create-user" method="POST" id="signupForm">
+                        <div class="form-group mb-4">
+                            <input type="text" placeholder="Full Name" class="text-lg border border-gray-200 focus:outline-none focus:border-blue-500 block p-3 rounded w-full" name="name">
+                        </div>
+                        <div class="form-group mb-4">
+                            <input type="text" placeholder="Email address" class="text-lg border border-gray-200 focus:outline-none focus:border-blue-500 block p-3 rounded w-full" name="email">
+                        </div>
+                        <div class="form-group mb-4">
+                            <input type="password" placeholder="Password" class="text-lg border border-gray-200 p-3 focus:outline-none block focus:border-blue-500 rounded w-full" name="password">
+                        </div>
+                        <div class="form-group mb-4">
+                            <input type="password" placeholder="Password Confirmation" class="text-lg border border-gray-200 p-3 focus:outline-none block focus:border-blue-500 rounded w-full" name="password_confirmation">
+                        </div>
+                        <div class="form-group mb-4">
+                            <button class="w-full rounded p-3 bg-blue-500 text-white text-xl font-bold" type="submit">Sign Up</button>
+                        </div>
+                    </form>
+                    <p class="text-center my-5">
+                        <a href="/forgot-password" class="text-blue-500 font-bold text-sm mr-4">Forgotten password?</a>
+                        <a href="/signin" class="text-blue-500 font-bold text-sm">Sign In</a>
+                    </p>                    
+                </div>
+        </div>
+    </div>
+    

@@ -1,0 +1,33 @@
+
+<div class="verify max-h-[80vh] min-h-[80vh] py-12 flex items-center justify-center px-2">
+    <div class="h-full md:h-auto mx-auto">
+        <div class="form p-4 mb-5 bg-white shadow-lg border border-gray-300 rounded-lg sm:min-w-[380px] min-w-[300px]">
+            <p class="text-center font-bold text-2xl pb-5">Two Factor Authentication</p>
+                <% if(flash && flash.success.length > 0){ %>
+                    <div class="flex p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
+                        <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+                        <div>
+                        <span class="font-medium"><%= flash.success %></span>
+                        </div>
+                    </div>
+                <% } %>
+                <% if(flash && flash.error.length > 0){ %>
+                    <div class="flex p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+                        <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+                        <div>
+                        <span class="font-medium"><%= flash.error %></span>
+                        </div>
+                    </div>
+                <% } %>
+                <form action="/verify" method="POST" id="verifyForm">
+                    <div class="form-group mb-4">
+                        <input type="text" placeholder="Enter OTP here..." class="text-lg border border-gray-200 focus:outline-none focus:border-blue-500 block p-3 rounded w-full" name="login_otp">
+                    </div>
+                    <div class="form-group mb-4">
+                        <button class="w-full rounded p-3 bg-blue-500 text-white text-xl font-bold" type="submit">Verify</button>
+                    </div>
+                </form>           
+            </div>
+    </div>
+</div>
+

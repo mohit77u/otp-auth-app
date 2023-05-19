@@ -1,0 +1,38 @@
+<section class="flex items-center justify-center create-form mx-auto min-h-screen px-2">
+    <div class="form lg:w-6/12 md:w-7/12 sm:w-11/12 w-full bg-white shadow rounded p-7">
+        <h2 class="text-center font-bold text-2xl pb-5">Edit Task</h2>
+        <form action="/update/<%= task._id %>" method="POST">
+            <div class="form-group mb-3">
+                <label class="block mb-3 text-lg text-slate-800 tracking-wide">Title</label>
+                <input type="text" class="w-full py-2 px-3 rounded bg-white border border-gray-200" value="<%= task.title %>" name="title" id="title" placeholder="Title" required>
+            </div>
+            <div class="form-group mb-3">
+                <label class="block mb-3 text-lg text-slate-800 tracking-wide">Description</label>
+                <textarea class="w-full py-2 px-3 rounded bg-white border border-gray-200" name="description" id="description" rows="5" placeholder="Description" required><%= task.description %></textarea>
+            </div>
+            <div class="grid sm:grid-cols-2 grid-cols-1 gap-5">
+                <div class="form-group mb-3">
+                    <label class="block mb-3 text-lg text-slate-800 tracking-wide">Category</label>
+                    <select name="category" id="category" value="<%= task.category %>" class="w-full py-2 px-3 rounded bg-white border border-gray-200" required>
+                        <option value="">Choose a category</option>
+                        <option <% if(task.category == 'personal'){ %> selected <% } %> value="personal">Personal</option>
+                        <option <% if(task.category == 'work'){ %> selected <% } %> value="work">Work</option>
+                        <option <% if(task.category == 'school'){ %> selected <% } %> value="school">School</option>
+                        <option <% if(task.category == 'cleaning'){ %> selected <% } %> value="cleaning">Cleaning</option>
+                        <option <% if(task.category == 'other'){ %> selected <% } %> value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group mb-3">
+                    <label class="block mb-3 text-lg text-slate-800 tracking-wide">Title</label>
+                    <input type="date" value="<%= task.due_date %>" class="w-full py-2 px-3 rounded bg-white border border-gray-200" name="due_date" id="due_date" required>
+                </div>
+            </div>
+
+            <!-- bottom text -->
+            <div class="text-right pt-8 flex justify-end items-center">
+                <a href="/" role="button" class="border-[2px] border-red-500 hover:bg-red-500 hover:text-white transition-all duration-300 text-red-500 rounded px-5 py-2 font-semibold mr-2 tracking-wide">Cancel</a>
+                <button type="submit" class="border-2 border-green-500 bg-green-500 rounded px-5 py-2 text-white font-semibold tracking-wide">Submit</button>
+            </div>
+        </form>
+    </div>
+</section>
